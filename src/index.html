@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="root">Not rendered</div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+  <script>
+    const Pet = ({name, animal, breed}) => {
+      return React.createElement(
+        "div",
+        {},
+        [
+          React.createElement("h1", {}, name),
+          React.createElement("h2", {}, animal),
+          React.createElement("h2", {}, breed)
+        ]
+      )
+    }
+
+    const App = () => {
+      return React.createElement(
+        "div", 
+        {},
+        [React.createElement("h1", {"what": "the hell"}, "Adopt me"),
+        React.createElement(Pet, {name: "Luna", animal: "dog", breed: "Havaneese"}),
+        React.createElement(Pet, {name: "Pepper", animal: "bird", breed: "some breed"})]
+      )
+    }
+
+    ReactDOM.render(
+      React.createElement(App), 
+      document.getElementById("root")
+    );
+  </script>
+</body>
+</html>
